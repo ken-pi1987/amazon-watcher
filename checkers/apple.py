@@ -21,10 +21,8 @@ def fetch_products() -> list[dict]:
         soup = BeautifulSoup(r.text, "html.parser")
 
         products = []
-        # 商品リンクを全件取得（h3 > a の構造）
-        for a in soup.select("ul.refurbished-category-grid-no-js li a, "
-                             "div.refurbished-category-grid li a, "
-                             "li.rf-refurb-product a"):
+        # 商品リンクを全件取得
+        for a in soup.select("div.rf-refurb-category-grid-no-js a[href*='/product/']"):
             name = a.get_text(strip=True)
             url = a.get("href", "")
             if not url.startswith("http"):
