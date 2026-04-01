@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 状態ファイル（実行時生成）
+state.json
+
+# 環境設定（Webhook URLを含むため）
+config.py
